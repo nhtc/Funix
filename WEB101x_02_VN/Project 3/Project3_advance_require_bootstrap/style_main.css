@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+  }
+
+.menu {
+    list-style: none;
+    padding: 2%;
+    background-color:#556270;
+    margin:0
+}
+
+.menu li{
+    text-decoration: none;
+}
+
+.menu a {
+    text-decoration: none;
+    font-family: 'Roboto', 'Oswald', sans-serif;
+    color: white;
+    font-size: 2vw;
+}
+
+.line{
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.247);
+}
+
+
+.content {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px 0 0 3%;
+    padding: 0;
+}
+
+.content h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 7vw;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+}
+
+
+#main-content {
+    margin: 5px 0 0 3%;
+    width: 90%;
+    
+}
+#main-content h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 7vw;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+}
+.list-image {
+    margin-left: 3%;
+}
+.list-image img {
+    width: 100%;
+    margin-top: 5%;
+  }
+
+.info {
+    margin-left: 3%;
+    width: 100%;
+}
+.footer .info{
+    margin-top: 10px;
+
+}
+body, html {
+     height:100%;
+ }
+
+ @media (min-width: 992px) {
+    .menu {
+        background-color: white;
+    }
+    .menu a {
+        color: black;
+        font-size: 1.5vw;
+    }
+    .content-banner {
+        height: 100vh;
+        background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        left: 0;
+    }
+    .content {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 20% 0 0 5%;
+        padding: 0;
+    }
+    .content h1 {
+        font-size: 5vw;
+    }
+    #main-content h1 {
+        font-size: 5vw;
+    }
+    .info {
+        margin:0;
+    }
+}
