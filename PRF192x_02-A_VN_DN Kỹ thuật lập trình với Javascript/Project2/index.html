@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Class Marksheet</title>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+<body>
+    <div class="background"></div>
+    <div class="blurred-box">
+        <div class="user-info-box">
+            <h1 class="title">Class Marksheet</h1>  
+            <form action="" class="mark">
+                <div class="name">        
+                    <label for="name">Họ và Tên</label>
+                    <input  class="info" type="text" id="name">
+                </div>
+                <div class="maths ">        
+                    <label for="maths">Điểm Toán<span><i class="fas fa-calculator-alt fa-sm"></i></span></label>
+                    <input  class="info" type="number" id="maths">
+                </div>
+
+                <div class="physics">
+                    <label for="physics">Điểm Lý</label>
+                    <input  class="info" type="number" id="physics">
+                </div>
+
+                <div class="chemistry subl">
+                    <label for="chemistry">Điểm Hóa</label>
+                    <input  class="info" type="number" id="chemistry">
+                </div>
+                <div class="button" >
+                    <button type="button" onclick="insertInfo()">Nhập<i class="fas fa-cog fa-spin"></i></button>
+                </div>
+            </form>
+        </div>
+  </div>
+    <div  class="blurred-box-table" >
+        <div class="table-info-box">
+            <table id="mark_table" style="width:100%">
+                <tr>
+                    <th class="header" style="width:10%" onclick="sortTable(0)">STT<i class="fas fa-sort fa-sm"></i></th>
+                    <th class="header" style="width:30%" onclick="sortTable(1)">Họ Tên<i class="fas fa-sort fa-sm"></i></th>
+                    <th class="header" style="width:15%" onclick="sortTable(2)">Toán<i class="fas fa-sort fa-sm"></i></th>
+                    <th class="header" style="width:15%" onclick="sortTable(3)">Lý<i class="fas fa-sort fa-sm"></i></th>
+                    <th class="header" style="width:15%" onclick="sortTable(4)">Hóa<i class="fas fa-sort fa-sm"></i></th>
+                    <th class="header" style="width:15%" onclick="sortTable(5)">Trung bình<i class="fas fa-sort fa-sm"></i></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="button" >
+        <button type="button" onclick="calcAverage()">Tính điểm trung bình</button>
+        <button type="button" onclick="classification()">Xác nhận học sinh giỏi</button>
+    </div>
+    <div class="button-delete">
+        <button type="button" onclick="deleteRow()">Xóa học sinh</button>
+        <input type="number" id="id-student">
+    </div>
+</body>
+</html>

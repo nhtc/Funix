@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body, html {
+      text-align: justify;
+  }
+
+  .row:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  
+  .menu .active {
+    background-color: rgb(160, 157, 163);
+    border-radius: 8px;
+  }
+
+  
+  .nav-bar {
+    background-image: url(https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX40015629.jpg);
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: left bottom; 
+    background-size: cover ;
+    position: fixed;
+  }
+  
+  .nav-bar-btn {
+    width: 28px;
+    height: 28px;
+    margin: 20px 20px;
+  
+  }
+  
+  .search-icon {
+    width: 28px;
+    height: 28px;
+    margin: 20px 10px;
+    display: inline-block;
+  }
+  
+  .menu .icon {
+    width: 28px;
+    height: 28px;
+    margin: 20px 10px;
+    display: inline-block;
+  }
+  
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.247);
+    display: none;
+    animation: fadeIn linear 0.2s;
+  }
+  
+  #nav-mobile-input {
+    display: none;
+  }
+  
+  #nav-mobile-input:checked ~ .nav-overlay {
+    display: block;
+    z-index: 1;
+  
+  }
+  
+  #nav-mobile-input:checked ~ .nav-mobile {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .nav-mobile {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: white;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-travel-icon-spring-europe-travel-promotion-travel-agency-poster-background-template-image_140278.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
+  
+  
+  .nav-mobile .menu {
+    margin-top: 15% !important;
+  }
+  
+  .nav-mobile li {
+    list-style-type: none;
+  }
+  
+  .nav-mobile li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: block;
+    font-size: 1.1rem;
+  }
+  
+  .nav-bar-close {
+    width: 28px;
+    height: 28px;
+    color: black;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  /* ------------------------- */
+
+.banner-image .content {
+    text-align: center;
+    width: 100%;
+    color: rgb(58, 54, 54);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+  
+.content h1 {
+  margin-top: 15px;
+}
+
+.introduce .content {
+      margin-top: 15px;
+      color:rgb(13, 71, 71);
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: justify;
+  }
+  .introduce .content p {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+.main-content .exp-content {
+    margin-top: 10px;
+}
+
+.main-content .exp-content h2 {
+    text-align: center;
+}
+
+.main-content img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block; /* remove extra space below image */
+}
+
+
+.text {
+  background-color: black;
+height: 10vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.text h1{
+margin: 0;
+color: rgba(225,225,225, .01);
+background-image: url("https://www.timeforkids.com/wp-content/uploads/2021/07/turtle1.jpg");
+background-repeat: repeat;
+-webkit-background-clip:text;
+animation: animate 15s ease-in-out infinite;
+text-align: center;
+text-transform: uppercase;
+font-weight: 900;
+}
+
+@keyframes animate {
+  0%, 100% {
+    background-position: left top;
+  }
+  25%{
+    background-position: right bottom;
+   }
+  50% {
+    background-position: left bottom;
+  }
+  75% {
+    background-position: right top;
+  }   
+}
+
+  
+  @media (min-width: 992px) {
+    .search-icon, .nav-bar-btn, .nav-mobile {
+      display: none;
+      position: absolute;
+    }
+  
+    .menu-desktop {
+      position: fixed;
+      top: 0;
+      height: 60px;
+    }
+    .menu-desktop li {
+      display: inline-block;
+    }
+  
+    .menu-desktop li a {
+      color: white;   
+      text-decoration: none;
+      margin-left: 20px;
+      line-height: 60px;
+    }
+  
+    .menu-desktop li .active {
+      text-decoration: underline;
+    }  
+    
+    .main-content {
+      margin-top: 10px !important;
+    }
+
+    .main-content img {
+      height: 100%;
+    }
+
+    .main-content p,
+    .introduce p {
+      font-size: 20px;
+    }
+    .nav-bar {
+      background-image: unset;
+      height: 80px;
+    }
+  
+    .banner {
+      top: 0px;
+      margin-top: 0;
+    }
+  
+    
+
+  
+    .banner-image .content {
+      bottom: 10%;
+    }
+  
+  
+  nav{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(0,0,0,0.4);
+      padding: 0 0 ;
+      box-sizing: border-box;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.12),
+      0 2px 2px rgba(0,0,0,0.12),
+      0 4px 4px rgba(0,0,0,0.12),
+      0 8px 8px rgba(0,0,0,0.12),
+      0 16px 16px rgba(0,0,0,0.12);
+  }
+  
+  nav .brand{
+     height: 100%;
+     line-height: 80px;
+  }
+  
+  nav .brand h2{
+    line-height: 60px;
+     margin: 0 0 0 40px;
+     padding: 0;
+     color: #fff;
+     font-size: 2.1vw;
+  }
+  
+  
+  nav ul{
+     float: right;
+     display: flex;
+     margin:0;
+     padding: 0;
+  }
+  
+  nav ul li{
+     list-style: none;
+  }
+  
+  nav ul li a{
+     position: relative;
+     display: block;
+     height: 80px;
+     line-height: 80px;
+     padding: 0 20px;
+     box-sizing: border-box;
+     color: #fff;
+     text-decoration: none;
+     text-transform: uppercase;
+     transition: 0.5s
+  }
+  
+  nav ul li a:before{
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: #fff;
+     transform-origin: right;
+     z-index: -1;
+     transform: scaleX(0);
+     transition:  transform 0.5s;
+  }
+  
+  nav ul li a:hover:before{
+     transform-origin: left;
+     transform: scaleX(1);
+  }
+  
+  nav ul li a:hover{
+     color: #262626;
+  }
+    
+}
