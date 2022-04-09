@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project JS 01</title>
+    <style>
+        div {
+            font-weight: bold;
+        }
+        #display_none {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tạo các thẻ div để hiển thị các thông tin sau khi nhập.
+        Với mỗi thông tin có một id riêng biệt -->
+    <div id="name"></div>
+    <div id="city"></div>
+    <div id="mobile"></div>
+    <div id="age"></div>
+    <div id="email"></div>
+    <div id="job"></div>
+    <div id="gender"></div> 
+    
+
+    <!-- Nút Try it để bắt đầu hiện thông báo để nhập thông tin -->
+    <p>Click the button to display an alert box.</p>
+    <button onclick="notify()">Try it</button>
+    <!-- Nút bước tiếp theo -->
+    <div id="display_none">
+        <button>Bước tiếp theo</button>
+    </div>
+    <!-- Đoạn mã JS -->
+    <script>
+        var now = new Date();// biến now chứa thời gian thực của hệ thống
+        var year = now.getFullYear();// biến year lấy ra năm trong biến thời gian now
+        //Hàm notify để người dùng nhập các thông tin vào
+        function notify() {
+            alert("Chào mừng bạn đến với ứng dụng JavaScript đầu tiên");//Hiện một thông báo
+            // khai báo các biến dùng đễ chứa thông tin người dùng nhập vào
+            let name = prompt("Hãy nhập tên của bạn");
+            let city = prompt("Hãy nhập thành phố bạn đang sống");
+            let mobile = prompt("Hãy nhập SDT của bạn");
+            let age = prompt("Hãy nhập năm sinh của bạn");
+            let email = prompt("Hãy nhập email cá nhân của bạn");
+            let job = prompt("Hãy nhập công việc hiện tại của bạn");
+            let gender = prompt("Hãy nhập giới tính của bạn");
+            // vòng while để kiểm tra năm sinh nhập vào có hợp lệ không?
+            while(age>year){
+                age = prompt("Hãy nhập lại năm sinh của bạn");
+            }
+            //Hiện các thông tin ra màn hình
+            document.getElementById("name").innerHTML = "Tên của bạn là: " + name;
+            document.getElementById("city").innerHTML = "Thành phố của bạn là: " + city;
+            document.getElementById("mobile").innerHTML = "SDT của bạn là: " + mobile;
+            document.getElementById("age").innerHTML = "Tuổi của bạn là: " + calcAge(age);
+            document.getElementById("email").innerHTML = "Email của bạn là: " + city;
+            document.getElementById("job").innerHTML = "Công việc của bạn là: " + mobile;
+            document.getElementById("gender").innerHTML = "Giới tính của bạn là: " + gender;
+            //Thay đổi display của thẻ bước tiếp theo để hiện lên màn hình
+            document.getElementById("display_none").style.display='block';
+        }
+
+
+        function calcAge(age) {
+            var date = new Date();
+            var year = date.getFullYear();
+            return year-age;
+        }
+    </script>
+</body>
+</html>
