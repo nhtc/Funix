@@ -1,30 +1,695 @@
 <!DOCTYPE html>
-<html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="test.js">
-</script>
-<style>
-   
-th, td {
-    margin: 10px;
-    border: 1px solid black;
-    border-top: 1px solid rgb(177, 167, 167);
-}
-</style>
-</head>
-<body>
-    <table id="mark_table" style="width:100%">
-        <tr>
-            <th class="header" style="width:10%" onclick="sortTable(0)">STT<i class="fas fa-sort fa-sm"></i></th>
-            <th class="header" style="width:30%" onclick="sortTable(1)">Họ Tên<i class="fas fa-sort fa-sm"></i></th>
-            <th class="header" style="width:15%" onclick="sortTable(2)">Toán<i class="fas fa-sort fa-sm"></i></th>
-            <th class="header" style="width:15%" onclick="sortTable(3)">Lý<i class="fas fa-sort fa-sm"></i></th>
-            <th class="header" style="width:15%" onclick="sortTable(4)">Hóa<i class="fas fa-sort fa-sm"></i></th>
-            <th class="header" style="width:15%" onclick="sortTable(5)">Trung bình<i class="fas fa-sort fa-sm"></i></th>
-        </tr>
-    </table><p>This is a paragraph.</p>
-<button onclick="appendText()">Append text</button>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Class Marksheet</title>
+		<script src="test.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+			integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+			crossorigin="anonymous"
+		/>
+		<style>
+			#res {
+				text-align: center;
+				margin-top: 20%;
+				font-size: 30px;
+			}
 
-</body>
+			li {
+				float: left;
+				width: 270px;
+				min-height: 76px;
+				margin-right: 26px;
+				padding: 5px 0 10px 0;
+			}
+
+			.image {
+				float: left;
+				border: 1px solid #d7d7d7;
+				width: 74px;
+			}
+			.title {
+				float: right;
+				width: 186px;
+				padding-top: 1px;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			img {
+				border: none;
+				border-radius: 3px;
+			}
+
+			a {
+				color: #fff;
+				text-decoration: none;
+				text-shadow: none;
+			}
+			a:hover {
+				color: #b82924;
+			}
+			p {
+				margin-bottom: 8px;
+			}
+			::-moz-selection {
+				background-color: #b82924;
+				color: #fff;
+			}
+
+			/* Works in Safari */
+			::selection {
+				background-color: #b82924;
+				color: #fff;
+			}
+
+			/************** G E N E R A L    S T Y L E ***************/
+			#wrapper {
+				width: 950px;
+				margin: 16px auto;
+				background-color: #121212;
+				padding: 20px 20px;
+				box-shadow: 0 4px 6px #000;
+			}
+
+			body {
+				background: url("../images/bg.png") repeat;
+				font-family: Source, Tahoma, sans-serif;
+				color: #fff;
+				font-size: 14px;
+				text-shadow: 1px 1px 0px #000;
+			}
+			#srt {
+				color: #f9f9f9;
+				display: block;
+				float: right;
+				position: absolute;
+				top: 14px;
+				left: 180px;
+				text-shadow: 1px 1px 0px #000;
+				font-size: 36px;
+				font-style: italic;
+				font-family: ethno, sans-serif;
+				font-weight: normal;
+			}
+			#ii {
+				font-size: 60px;
+				font-family: LeagueGothic, sans-serif;
+				font-weight: bold;
+				position: absolute;
+				left: 169px;
+				top: -3px;
+				color: #b82924;
+				display: block;
+				float: right;
+				text-shadow: none;
+				font-style: italic;
+				letter-spacing: 2px;
+			}
+
+			/************* L O G O   &  N A V   B A R    S T Y L E ****************/
+			header h1 {
+				font-family: LeagueGothic, Impact, sans-serif;
+				font-weight: normal;
+				text-transform: uppercase;
+				font-size: 2.5em;
+				text-shadow: 1px 1px 0 #000;
+				position: relative;
+				width: 300px;
+				margin-bottom: 2px;
+			}
+			header h2 {
+				font-size: 16px;
+				font-weight: normal;
+				font-family: LeagueGothic, sans-serif;
+				width: 170px;
+				text-shadow: 1px 1px 0 #000;
+				text-transform: uppercase;
+			}
+			#tagline {
+				margin-top: -8px;
+			}
+			#logo,
+			nav,
+			nav li {
+				display: inline-block;
+				vertical-align: top;
+				*display: inline;
+				zoom: 1;
+			}
+			#logo {
+				width: 270px;
+			}
+			nav a {
+				color: #fff;
+				font-family: LeagueGothic, sans-serif;
+				text-decoration: none;
+				font-size: 1.5em;
+				margin-left: 25px;
+				text-transform: uppercase;
+				text-shadow: 1px 1px 0px #000;
+			}
+
+			nav {
+				margin: 20px 4px 0 0;
+				float: right;
+			}
+			header {
+				margin-bottom: 25px;
+			}
+			#home a#homenav,
+			#blog a#blognav,
+			#fullwidth a#fullwidthnav,
+			#contact a#contactnav {
+				color: #b82924;
+			}
+			/*************** B A N N E R    S T Y L E ******************/
+			#banner {
+				position: relative;
+				margin-bottom: 30px;
+			}
+			#banneri {
+				position: absolute;
+				bottom: 15%;
+				left: 0;
+				width: 500px;
+				background-color: rgba(0, 0, 0, 0.8);
+				padding: 5px 10px;
+			}
+			#banner img {
+				box-shadow: 0 4px 6px #000;
+			}
+			#banner h1 {
+				font-family: LeagueGothic, Impact, sans-serif;
+				font-weight: normal;
+				text-transform: uppercase;
+				text-shadow: 1px 1px 0px #000;
+				display: inline;
+			}
+			#banner .rm {
+				position: absolute;
+				color: #000;
+				background-color: #fff;
+				padding: 4px 8px;
+				right: 3%;
+				bottom: -10%;
+			}
+
+			/************* H O M E    C O N T E N T *******************/
+			#line h1 {
+				font-family: LeagueGothic, Impact, sans-serif;
+				font-weight: normal;
+				font-size: 30px;
+				text-transform: uppercase;
+				color: #f8f8f8;
+				text-shadow: 2px 2px 0 #000;
+				text-align: center;
+			}
+			#line h1,
+			.dline {
+				display: inline-block;
+				*display: inline;
+				zoom: 1;
+				margin: 0 0 0 10px;
+			}
+			#line {
+				margin: 0 0 0 80px;
+			}
+			.dline {
+				width: 312px;
+				height: 3px;
+				background: url("../images/bgdline.png") repeat-x;
+				margin-bottom: 10px;
+			}
+			#ourserv article {
+				width: 275px;
+				display: inline-block;
+				*display: inline;
+				zoom: 1;
+				vertical-align: top;
+				margin: 0 38px 0 0;
+			}
+			#ourserv article h1,
+			#latestp article h1 {
+				font-family: LeagueGothic, sans-serif;
+				font-weight: normal;
+				text-transform: uppercase;
+				font-size: 22px;
+				margin-bottom: 5px;
+			}
+			.lastarticle {
+				margin: 0;
+			}
+			#ourserv {
+				margin: 8px 0 15px 20px;
+				width: 100%;
+			}
+			#ourserv img,
+			#latestp img {
+				margin-bottom: 5px;
+				box-shadow: 0 4px 6px #000;
+			}
+			.rm {
+				color: #121212;
+				background-color: #f2f2f2;
+				padding: 1px 4px;
+				display: block;
+				width: 58px;
+				margin-top: 5px;
+				box-shadow: 0px 0px 3px #000;
+				font-family: LeagueGothic, sans-serif;
+				text-transform: uppercase;
+				font-size: 18px;
+				border-radius: 2px;
+			}
+			.rm:hover {
+				background-color: #b82924;
+				color: #121212;
+			}
+
+			#sline h1 {
+				font-family: LeagueGothic, Impact, sans-serif;
+				font-weight: normal;
+				font-size: 30px;
+				text-transform: uppercase;
+				color: #f5f5f5;
+				text-shadow: 2px 2px 0 #000;
+				text-align: center;
+			}
+			#sline h1,
+			.sdline {
+				display: inline-block;
+				*display: inline;
+				zoom: 1;
+				margin: 0 0 0 10px;
+			}
+			#sline {
+				margin: 20px 0 10px 80px;
+			}
+			.sdline {
+				width: 300px;
+				height: 2px;
+				background: url("../images/bgdline.png") repeat-x;
+				margin-bottom: 10px;
+			}
+			#latestp article {
+				width: 210px;
+				display: inline-block;
+				*display: inline;
+				zoom: 1;
+				margin-right: 20px;
+			}
+			#latestp {
+				margin-left: 20px;
+			}
+
+			/************* B L O G    S T Y L E  &   C O N T A C T   P A G E *****************************/
+			#articles,
+			#sidebar {
+				display: inline-block;
+				vertical-align: top;
+				*display: inline;
+				zoom: 1;
+			}
+			#blog section,
+			#contact section {
+				margin: 30px 0 0 10px;
+			}
+			#sidebar,
+			#contat #sidebar {
+				width: 280px;
+				margin: 0 0 0 55px;
+			}
+			#articles,
+			#contactpost {
+				width: 600px;
+				margin: 0 0 40px 0;
+			}
+			#blog li,
+			#contact li {
+				list-style-type: square;
+			}
+			#blog article {
+				width: 580px;
+				margin-bottom: 40px;
+			}
+			#blog footer,
+			#contact footer {
+				margin-top: 0px;
+			}
+			#blog article h1 a {
+				font-family: LeagueGothic, sans-serif;
+				font-weight: normal;
+				text-transform: uppercase;
+				font-size: 22px;
+				text-shadow: 1px 1px 0 #000;
+				word-spacing: 2px;
+				margin-bottom: 5px;
+			}
+			#blog article h2 {
+				font-size: 12px;
+				font-weight: normal;
+				letter-spacing: 0.2px;
+				margin-bottom: 12px;
+				background-color: #0a0a0a;
+				padding: 4px 8px 4px 8px;
+				font-family: source, sans-serif;
+				text-transform: none;
+			}
+			#blog article h2 a:hover {
+				text-decoration: underline;
+			}
+			#blog article img {
+				box-shadow: 0 4px 6px #000;
+				margin-bottom: 10px;
+			}
+			#sidebar h1,
+			#contact #sidebar h1 {
+				font-family: LeagueGothic, sans-serif;
+				font-weight: normal;
+				text-transform: uppercase;
+				font-size: 22px;
+				text-shadow: 1px 1px 0 #000;
+				word-spacing: 2px;
+				margin-bottom: 4px;
+			}
+			#sidebar li,
+			#contact #sidebar li {
+				margin: 0 0 4px 25px;
+				color: #b82924;
+			}
+			#sidebar li:hover,
+			#contact #sidebar li:hover {
+				margin-left: 30px;
+			}
+			#sidebar li a:hover,
+			#contact #sidebar li a:hover {
+				text-decoration: underline;
+			}
+			#blog aside,
+			#contact #sidebar aside {
+				margin: 0 0 20px 0;
+			}
+			#cat,
+			#archives,
+			#contact #sidebar #cat,
+			#contact #sidebar #archives {
+				width: 130px;
+				display: inline-block;
+				vertical-align: top;
+				*display: inline;
+				zoom: 1;
+			}
+			.continue {
+				text-decoration: underline;
+			}
+			/* SINGLE POST STYLE  and CONTACT PAGE with SIDEBAR*/
+			#singlepost,
+			#sidebar,
+			#contactpost {
+				display: inline-block;
+				vertical-align: top;
+				*display: inline;
+				zoom: 1;
+			}
+			#singlepost {
+				margin-right: 20px;
+			}
+			/* CONTACT PAGE */
+			#contactpost p {
+				margin-bottom: 25px;
+			}
+			input[type="user"] {
+				display: block;
+				float: right;
+				height: 20px;
+				width: 280px;
+				padding-left: 3px;
+			}
+			input[type="email"] {
+				display: block;
+				float: right;
+				height: 20px;
+				width: 280px;
+				padding-left: 3px;
+			}
+			#message {
+				display: block;
+				float: right;
+				width: 280px;
+				height: 130px;
+				padding-left: 3px;
+			}
+			input[type="submit"] {
+				display: block;
+				float: right;
+				font-family: LeagueGothic, sans-serif;
+				font-size: 18px;
+				text-transform: uppercase;
+				border: 2px outset #b2b2b2;
+				color: #121212;
+			}
+			input,
+			#message {
+				margin-right: 180px;
+				background-color: #f8f8f8;
+				border: 2px inset #000;
+				border-radius: 3px;
+			}
+			input[type="submit"]:hover {
+				cursor: pointer;
+			}
+			input[type="submit"]:active {
+				border: 2px inset #b2b2b2;
+			}
+
+			/************* F U L L  W I D T H   &  S I N G L E   P O S T    S T Y L E*********************/
+			#fullwidth h1,
+			#fullwidth h2,
+			#fullwidth h3,
+			#fullwidth h4,
+			#fullwidth h5,
+			#fullwidth h6,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-family: LeagueGothic, sans-serif;
+				text-transform: uppercase;
+				font-weight: normal;
+			}
+			#fullwidth section h2,
+			#singlepost section h2 {
+				color: #b82924;
+			}
+			.mg {
+				/*just for examples, do not use this class*/
+				margin: 8px 0 12px 0;
+			}
+			#fullwidth section a,
+			#singlepost section a {
+				text-decoration: underline;
+			}
+			#fullwidth section ul li,
+			#singlepost section ul li {
+				list-style-type: square;
+				margin-left: 20px;
+			}
+			#fullwidth section ol li,
+			#singlepost section ol li {
+				list-style-type: decimal;
+				margin-left: 20px;
+			}
+			.right {
+				float: right;
+				margin-left: 10px;
+			}
+			.left {
+				float: left;
+				margin-right: 10px;
+			}
+			.center {
+				display: block;
+				text-align: center;
+				margin: 20px auto;
+			}
+
+			/************* F O O T E R     S T Y L E *************************/
+
+			footer {
+				margin-top: 30px;
+				text-align: right;
+			}
+		</style>
+		<body>
+			<section>
+				<div id="wrapper">
+					<div id="line">
+						<div class="dline"></div>
+						<h1>Our Services</h1>
+						<div class="dline"></div>
+					</div>
+					<div id="ourserv">
+						<article>
+							<h1>Web Design</h1>
+							<img src="images/1.jpg" alt="" />
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer
+								adipiscing elit. Morbi commodo, ipsum sed
+								pharetra gravida, orci magna rhoncus neque, id
+								pulvinar odio lorem non turpis. Nullam sit amet.
+							</p>
+							<a href="fullwidth.html" class="rm">Read More</a>
+						</article>
+						<article>
+							<h1>Graphic Design</h1>
+							<img src="images/2.jpg" alt="" />
+							<p>
+								Consectetuer adipiscing elit. Suspendisse enim
+								elit. Morbi commodo, ipsum sed pharetra gravida,
+								orci magna rhoncus neque, id pulvinar odio lorem
+								non turpis. Nullam sit.
+							</p>
+							<a href="fullwidth.html" class="rm">Read More</a>
+						</article>
+						<article class="">
+							<h1>Web Development</h1>
+							<img src="images/3.jpg" alt="" />
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer
+								adipiscing elit. Morbi commodo, ipsum sed
+								pharetra gravida, orci magna rhoncus neque, id
+								pulvinar odio lorem non turpis. Nullam sit enim.
+							</p>
+							<a href="fullwidth.html" class="rm">Read More</a>
+						</article>
+					</div>
+				</div>
+			</section>
+			<script type="text/javascript">
+				var twoSum = function (nums, target) {
+					var res = [];
+					nums1 = nums.slice();
+					nums.sort(function (a, b) {
+						return a - b;
+					});
+					console.log(nums1);
+					for (var i = 0; i < nums.length - 1; i++) {
+						if (nums[i] >= target) {
+							break;
+						}
+						for (var j = i + 1; j < nums.length; j++) {
+							if (nums[i] + nums[j] == target) {
+								res.push(nums1.indexOf(nums[i]));
+								res.push(
+									nums1.indexOf(
+										nums[j],
+										nums1.indexOf(nums[i]) + 1
+									)
+								);
+								break;
+							}
+						}
+					}
+					return res;
+				};
+
+				var reverseString = function (str) {
+					str = str.toString();
+					if (str === "") return "";
+					else return reverseString(str.substr(1)) + str.charAt(0);
+				};
+
+				var romanToInt = function (s) {
+					const dict = {
+						I: 1,
+						V: 5,
+						X: 10,
+						L: 50,
+						C: 100,
+						D: 500,
+						M: 1000,
+					};
+
+					var sum = 0;
+					const arr = [...s];
+					console.log(arr);
+					arr.forEach((val, index, elements) => {
+						if (
+							val == "I" &&
+							(elements[index + 1] == "V" ||
+								elements[index + 1] == "X")
+						) {
+							sum -= 1;
+						} else if (
+							val == "X" &&
+							(elements[index + 1] == "L" ||
+								elements[index + 1] == "C")
+						) {
+							sum -= 10;
+						} else if (
+							val == "C" &&
+							(elements[index + 1] == "D" ||
+								elements[index + 1] == "M")
+						) {
+							sum -= 100;
+						} else {
+							sum += dict[val];
+						}
+					});
+
+					return sum;
+				};
+
+				var startTime = performance.now();
+
+				// document.getElementById("res").innerHTML =
+				// 	"Kết quả là " + romanToInt("MCMXCIV");
+				newList = document.querySelector("#new-list");
+				console.log(newList);
+				fetch(
+					"https://gnews.io/api/v4/top-headlines?country=gb&token=c16b13df97527279c9eb7de957122066"
+				)
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (data) {
+						console.log(data.articles);
+						data.articles.forEach((article) => {
+							//  $("#new-list").html("<li>"++"</li>");
+							// let li = document.createElement("li");
+							// let a = document.createElement("a");
+							// let img = document.createElement("img");
+							// let h1 = document.createElement("h1");
+							// img.setAttribute("src", article.image);
+							// a.setAttribute("href", article.url);
+							// a.setAttribute("target", "_blank");
+							// a.textContent = article.title;
+							// li.appendChild(img);
+							// li.appendChild(a);
+							// newList.appendChild(li);
+						});
+						console.log(newList);
+					});
+
+				var endTime = performance.now();
+
+				console.log(
+					`Call to doSomething took ${
+						endTime - startTime
+					} milliseconds`
+				);
+			</script>
+		</body>
+	</head>
 </html>

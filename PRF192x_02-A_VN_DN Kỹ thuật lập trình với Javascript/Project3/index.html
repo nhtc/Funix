@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Class Marksheet</title>
+    <title>Project 3 JS</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./js/index.js"></script>
@@ -45,23 +45,23 @@
         <div class="table-info-box">
             <table id="mark_table" style="width:100%">
                 <tr>
-                    <th class="header" style="width:10%" onclick="sortTable(0)">STT<i class="fas fa-sort fa-sm"></i></th>
-                    <th class="header" style="width:30%" onclick="sortTable(1)">Họ Tên<i class="fas fa-sort fa-sm"></i></th>
-                    <th class="header" style="width:15%" onclick="sortTable(2)">Toán<i class="fas fa-sort fa-sm"></i></th>
-                    <th class="header" style="width:15%" onclick="sortTable(3)">Lý<i class="fas fa-sort fa-sm"></i></th>
-                    <th class="header" style="width:15%" onclick="sortTable(4)">Hóa<i class="fas fa-sort fa-sm"></i></th>
-                    <th class="header" style="width:15%" onclick="sortTable(5)">Trung bình<i class="fas fa-sort fa-sm"></i></th>
+                    <th id="id_col" style="width:10%" >STT<i class="fas fa-sort fa-sm"></i></th>
+                    <th id="name_col" style="width:30%" >Họ Tên<i class="fas fa-sort fa-sm"></i></th>
+                    <th id="maths_col" style="width:15%" >Toán<i class="fas fa-sort fa-sm"></i></th>
+                    <th id="physics_col" style="width:15%" >Lý<i class="fas fa-sort fa-sm"></i></th>
+                    <th id="chemistry_col" style="width:15%" >Hóa<i class="fas fa-sort fa-sm"></i></th>
+                    <th id="avg_col" style="width:15%" >Trung bình<i class="fas fa-sort fa-sm"></i></th>
                 </tr>
             </table>
         </div>
     </div>
 
     <div class="button" >
-        <button type="button" id="btn-avg" onclick="calcAverage()">Tính điểm trung bình</button>
-        <button type="button" id="btn-classify" onclick="classification()">Xác nhận học sinh giỏi</button>
+        <button type="button" id="btn-avg">Tính điểm trung bình</button>
+        <button type="button" id="btn-classify">Xác nhận học sinh giỏi</button>
     </div>
     <div class="button-delete">
-        <button type="button" onclick="deleteRow()">Xóa học sinh</button>
+        <button type="button" id="btn-del">Xóa học sinh</button>
         <input type="number" id="id-student">
     </div>
 </body>

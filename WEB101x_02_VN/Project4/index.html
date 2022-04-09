@@ -83,7 +83,18 @@
                                         <span>Trải nghiệm</span>
                                 </a></li>
                             </div>
-                    </ul> 
+                    </ul> var dateObj = new Date();
+                    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+                    var day = dateObj.getUTCDate();
+                    var year = dateObj.getUTCFullYear();
+                    
+                    const days = ["Chủ nhật","Thứ hai","Thứ ba","Thứ tư","Thứ năm","Thứ sáu","Thứ bảy"];
+                    let weekday = days[dateObj.getDay()];
+                    
+                    newdate = weekday+", "+ day + "/" + month + "/" + year;
+                    document.getElementById("date").innerHTML = newdate;
+                    
+                    
                 </div>
  
                 <nav class="row d-none d-lg-block nav-bar-desktop">
