@@ -1,109 +1,130 @@
 ul {
-    list-style: none;
+    overflow: hidden;
+
     margin: 0;
     padding: 0;
-    overflow: hidden;
+
+    list-style: none;
 }
 
 li {
-
     display: inline-block;
+
     margin: 5px;
+
     text-decoration: none;
 }
 
 li a {
+    font-family: "Oswald", sans-serif;
+
     text-decoration: none;
-    font-family: 'Oswald', sans-serif;
+
     color: black;
 }
 div.nav-left {
-    padding: 15px;
     float: left;
+
+    padding: 15px;
 }
 
 div.nav-right {
+    float: right;
+
     padding: 15px;
-    float:right;
 }
 
 #banner {
+    position: relative;
+
     height: 100%;
+    margin-top: 10px;
+
     background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    margin-top: 10px;
 }
 
 .content-banner {
-    color: white;
     font-family: Arial, Helvetica, sans-serif;
+
     position: absolute;
     top: 30%;
     left: 5%;
+
     margin: 0;
     padding: 0;
+
+    color: white;
 }
 
 #main-content {
     position: relative;
-    background-color:lightgray;
+
+    background-color: lightgray;
 }
 
 #main-content > header {
-    margin-left: 3%;
     margin-bottom: -1.5%;
+    margin-left: 3%;
 }
 
 
 #list_image::after {
-    content: ".";
+    display: block;
     visibility: hidden;
-    display: block; 
     clear: both;
+
+    content: ".";
 }
 
 #list_image {
-    background-color:lightgray ;
+    background-color: lightgray ;
 }
 
 div.image_column {
+    float: left;
+
     width: 31%;
     margin: 1% 1% 0 1%;
-    float: left;
 }
 .image > img {
     margin-top: 12px;
-  }
+}
 
-#footer {  
-    top: -4%;
-    clear: left;
+#footer {
     position: relative;
-    background-color:lightgray ;
+    top: -4%;
+
+    clear: left;
+
+    background-color: lightgray ;
 }
 
 .info1 {
     position: relative;
-    bottom: 0px;
-    width: 31%;
+    bottom: 0;
     left: 2%;
+
+    width: 31%;
 }
 .info2 {
     position: absolute;
-    bottom: 0px;
-    width: 31%;
+    bottom: 0;
     left: 34%;
+
+    width: 31%;
     margin-left: 10px;
 }
 .info3 {
     position: absolute;
-    bottom: 0px;
-    width: 31%;
+    bottom: 0;
     left: 68%;
+
+    width: 31%;
 }
 
-body, html {
-     height:100%;
- }
+body,
+html {
+    height: 100%;
+}

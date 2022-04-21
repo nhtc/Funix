@@ -1,28 +1,54 @@
 
 @media only screen and (min-width: 992px) {
     /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
     .menu {
-        background-color: white;
         padding: 3% 2% 1% 3%;
+
+        background-color: white;
     }
 
     .menu a {
-        color: black;
-        font-family: 'Roboto', 'Oswald', sans-serif;
-        font-weight: bolder;
+        font-family: "Roboto", "Oswald", sans-serif;
         font-size: 120%;
+        font-weight: bolder;
+
+        color: black;
     }
 
     .line {
@@ -30,40 +56,48 @@
     }
 
     .banner {
+        left: 0;
+
         height: 100%;
+        margin: 0;
+
         background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
         background-repeat: no-repeat;
         background-size: cover;
-        margin: 0;
-        left: 0;
     }
 
     .content {
-        color: white;
-        font-family: 'Rowdies', cursive; 
+        font-family: "Rowdies", cursive;
+
         position: absolute;
         top: 40%;
         left: 8%;
+
         margin: 0;
         padding: 0;
+
+        color: white;
     }
     .content h1 {
-        font-family: 'Rowdies', cursive;
+        font-family: "Rowdies", cursive;
     }
 
     .main {
         margin-top: -3% ;
-        background-color:lightgray;
+
+        background-color: lightgray;
     }
 
     #main-content {
-        top: 10px;
-        margin-top: 0;
         font-size: 120%;
+
+        top: 10px;
+
+        margin-top: 0;
     }
 
     .list-image {
-        background-color:lightgray;
+        background-color: lightgray;
     }
     .image {
         margin: 0;
@@ -71,8 +105,9 @@
     }
 
     .image img {
-        width: 100%;
         display: unset;
+
+        width: 100%;
         margin: 1%;
         padding: 0;
     }

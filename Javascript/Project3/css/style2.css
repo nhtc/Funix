@@ -143,6 +143,7 @@ nav #icon-search {
     animation-iteration-count: infinite;
     text-align: center;
     letter-spacing: 5px;
+
 /* width: 100%; */
     /* left: calc(50vw + -100px); */
     text-transform: uppercase;
@@ -323,6 +324,7 @@ nav::after {
     padding: 10px;
 
     text-align: center;
+
 /* *display: inline; */
     vertical-align: top;
 
@@ -418,7 +420,7 @@ nav::after {
 
 
 #form-container {
-/* font-size: 25px; */
+    /* font-size: 25px; */
     line-height: 95px;
 
     position: absolute;
@@ -757,3 +759,7 @@ footer {
         transform: rotate(360deg);
     }
 }
+
+
+
+

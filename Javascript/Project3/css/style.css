@@ -280,3 +280,31 @@ input.info {
         color: yellow;
     }
 }
+.loader-line-wrap:nth-child(4) .loader-line {
+    top: 28px;
+
+    width: 48px;
+    height: 48px;
+
+    border-color: hsl(180, 80%, 60%);
+}
+
+.loader-line-wrap:nth-child(5) .loader-line {
+    top: 35px;
+
+    width: 34px;
+    height: 34px;
+
+    border-color: hsl(240, 80%, 60%);
+}
+
+@keyframes spin {
+    0%,
+    15% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

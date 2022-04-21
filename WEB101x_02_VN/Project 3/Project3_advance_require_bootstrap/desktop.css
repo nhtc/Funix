@@ -1,15 +1,18 @@
 .menu {
     display: unset;
-    background-color: white;
+
     padding: 3% 2% 1% 3%;
+
+    background-color: white;
 }
 .menu li {
     display: unset;
 }
 .menu a {
-    color: black;
-    font-family: 'Roboto', 'Oswald', sans-serif;
+    font-family: "Roboto", "Oswald", sans-serif;
     font-weight: bolder;
+
+    color: black;
 }
 
 .line {
@@ -17,40 +20,48 @@
 }
 
 .banner {
+    left: 0;
+
     height: 100%;
+    margin: 0;
+
     background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0;
-    left: 0;
 }
 
 .content {
-    color: white;
-    font-family: 'Rowdies', cursive; 
+    font-family: "Rowdies", cursive;
+
     position: absolute;
     top: 40%;
     left: 8%;
+
     margin: 0;
     padding: 0;
+
+    color: white;
 }
 .content h1 {
-    font-family: 'Rowdies', cursive;
+    font-family: "Rowdies", cursive;
 }
 
 .main {
     margin-top: -3% ;
-    background-color:lightgray;
+
+    background-color: lightgray;
 }
 
 #main-content {
-    top: 10px;
-    margin-top: 0;
     font-size: 120%;
+
+    top: 10px;
+
+    margin-top: 0;
 }
 
 .list-image {
-    background-color:lightgray;
+    background-color: lightgray;
 }
 .image {
     margin: 0;
@@ -58,8 +69,9 @@
 }
 
 .image img {
-    width: 100%;
     display: unset;
+
+    width: 100%;
     margin: 1%;
     padding: 0;
 }

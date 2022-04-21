@@ -1,55 +1,64 @@
 * {
     box-sizing: border-box;
-  }
-
-.menu {
-    list-style: none;
-    padding: 2%;
-    background-color:#556270;
-    margin:0
 }
 
-.menu li{
+.menu {
+    margin: 0;
+;
+    padding: 2%;
+
+    list-style: none;
+
+    background-color: #556270;
+}
+
+.menu li {
     text-decoration: none;
 }
 
 .menu a {
-    text-decoration: none;
-    font-family: 'Roboto', 'Oswald', sans-serif;
-    color: white;
+    font-family: "Roboto", "Oswald", sans-serif;
     font-size: 2vw;
+
+    text-decoration: none;
+
+    color: white;
 }
 
-.line{
+.line {
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.247);
+
+    border-bottom: 1px solid rgba(0, 0, 0, .247);
 }
 
 
 .content {
-    color: black;
     font-family: Arial, Helvetica, sans-serif;
+
     margin: 5px 0 0 3%;
     padding: 0;
+
+    color: black;
 }
 
 .content h1 {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 7vw;
     font-weight: bold;
+
     margin: 15px 0 0 0;
 }
 
 
 #main-content {
-    margin: 5px 0 0 3%;
     width: 90%;
-    
+    margin: 5px 0 0 3%;
 }
 #main-content h1 {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 7vw;
     font-weight: bold;
+
     margin: 15px 0 0 0;
 }
 .list-image {
@@ -58,41 +67,46 @@
 .list-image img {
     width: 100%;
     margin-top: 5%;
-  }
+}
 
 .info {
-    margin-left: 3%;
     width: 100%;
+    margin-left: 3%;
 }
-.footer .info{
+.footer .info {
     margin-top: 10px;
-
 }
-body, html {
-     height:100%;
- }
+body,
+html {
+    height: 100%;
+}
 
- @media (min-width: 992px) {
+@media (min-width: 992px) {
     .menu {
         background-color: white;
     }
     .menu a {
-        color: black;
         font-size: 1.5vw;
+
+        color: black;
     }
     .content-banner {
+        left: 0;
+
         height: 100vh;
+        margin: 0;
+
         background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
         background-repeat: no-repeat;
         background-size: cover;
-        margin: 0;
-        left: 0;
     }
     .content {
-        color: white;
         font-family: Arial, Helvetica, sans-serif;
+
         margin: 20% 0 0 5%;
         padding: 0;
+
+        color: white;
     }
     .content h1 {
         font-size: 5vw;
@@ -101,6 +115,6 @@ body, html {
         font-size: 5vw;
     }
     .info {
-        margin:0;
+        margin: 0;
     }
 }
