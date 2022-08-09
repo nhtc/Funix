@@ -1,0 +1,121 @@
+
+@media only screen and (min-width: 992px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+    .menu {
+        padding: 3% 2% 1% 3%;
+
+        background-color: white;
+    }
+
+    .menu a {
+        font-family: "Roboto", "Oswald", sans-serif;
+        font-size: 120%;
+        font-weight: bolder;
+
+        color: black;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .banner {
+        left: 0;
+
+        height: 100%;
+        margin: 0;
+
+        background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .content {
+        font-family: "Rowdies", cursive;
+
+        position: absolute;
+        top: 40%;
+        left: 8%;
+
+        margin: 0;
+        padding: 0;
+
+        color: white;
+    }
+    .content h1 {
+        font-family: "Rowdies", cursive;
+    }
+
+    .main {
+        margin-top: -3% ;
+
+        background-color: lightgray;
+    }
+
+    #main-content {
+        font-size: 120%;
+
+        top: 10px;
+
+        margin-top: 0;
+    }
+
+    .list-image {
+        background-color: lightgray;
+    }
+    .image {
+        margin: 0;
+        padding: 0;
+    }
+
+    .image img {
+        display: unset;
+
+        width: 100%;
+        margin: 1%;
+        padding: 0;
+    }
+
+    .footer {
+        background-color: rgb(228, 222, 222);
+    }
+    .info {
+        margin-left: 0;
+    }
+}

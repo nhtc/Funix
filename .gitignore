@@ -1,0 +1,8 @@
+.vscode
+node_modules
+_config.yml
+.gitattributes
+package-lock.json
+test.js
+test.html
+test.css

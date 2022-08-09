@@ -1,0 +1,67 @@
+
+.menu {
+    margin: 0;
+}
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    font-size: 100%;
+
+    float: left;
+
+    margin: 0;
+    padding-top: 5px;
+}
+
+.content {
+    font-size: 110%;
+
+    left: 5%;
+}
+
+#main-content {
+    font-size: 110%;
+
+    left: 5%;
+
+    margin-left: 0;
+}
+
+
+#main-content h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 300%;
+    font-weight: bolder;
+
+    margin: 15px 0 0 0;
+}
+
+.line {
+    position: absolute;
+    left: 5%;
+
+    width: 90%;
+
+    border-bottom: 1px solid rgba(0, 0, 0, .247);
+}
+
+.image {
+    width: 100%;
+    margin: 0 0 0 1%;
+    padding: 0;
+}
+
+.image img {
+    display: unset;
+
+    width: 100%;
+    margin: 1%;
+    padding: 0;
+}
+
+.info {
+    width: 80%;
+    margin: 0 0 5% 5%;
+}

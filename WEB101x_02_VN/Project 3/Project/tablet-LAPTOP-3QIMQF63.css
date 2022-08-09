@@ -1,0 +1,107 @@
+
+@media only screen and (min-width: 768px) and (max-width:991px) {
+    /* For tablets: */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+
+    .menu {
+        margin: 0;
+    }
+    .menu li {
+        display: inline-block;
+    }
+
+    .menu a {
+        font-size: 110%;
+
+        float: left;
+
+        margin: 0;
+        padding-top: 5px;
+    }
+
+    .content {
+        font-size: 110%;
+
+        left: 5%;
+    }
+
+    #main-content {
+        font-size: 110%;
+
+        left: 5%;
+
+        margin-left: 0;
+    }
+
+
+    #main-content h1 {
+        font-family: "Roboto", sans-serif;
+        font-size: 300%;
+        font-weight: bolder;
+
+        margin: 15px 0 0 0;
+    }
+
+    .line {
+        position: absolute;
+        left: 5%;
+
+        width: 90%;
+
+        border-bottom: 1px solid rgba(0, 0, 0, .247);
+    }
+
+    .image {
+        width: 100%;
+        margin: 0 0 0 1%;
+        padding: 0;
+    }
+
+    .image img {
+        display: unset;
+
+        width: 100%;
+        margin: 1%;
+        padding: 0;
+    }
+
+    .info {
+        width: 80%;
+        margin: 0 0 5% 5%;
+    }
+}

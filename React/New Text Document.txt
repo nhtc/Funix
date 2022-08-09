@@ -1,0 +1,315 @@
+// import React, { Component, useEffect } from "react"
+// import { Control, Errors, LocalForm } from "react-redux-form"
+// import { Link } from "react-router-dom"
+// import {
+// 	Breadcrumb,
+// 	BreadcrumbItem,
+// 	Button,
+// 	Card,
+// 	CardBody,
+// 	CardImg,
+// 	CardText,
+// 	CardTitle,
+// 	Col,
+// 	Label,
+// 	Modal,
+// 	ModalBody,
+// 	ModalHeader,
+// 	Row,
+// 	Input,
+// 	FormFeedback,
+// } from "reactstrap"
+// import { DEPARTMENTS } from "../shared/staffs"
+// import { v4 as uuidv4 } from "uuid"
+
+// const required = val => val && val.length
+// const maxLength = len => val => !val || val.length <= len
+// const minLength = len => val => val && val.length >= len
+// const isNumber = val => !isNaN(Number(val))
+// const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val)
+// class CreateStaffForm extends Component {
+// 	constructor(props) {
+// 		super(props)
+// 		this.state = {
+// 			// departments: DEPARTMENTS,
+// 			// isCommentFormModalOpen: false,
+// 			// name: "Minh",
+// 			// doB: "1999-06-19",
+// 			// salaryScale: "1",
+// 			// department: "HR",
+// 			// annualLeave: "0",
+// 			// overTime: "0",
+// 			// startDate: "2021-07-20",
+// 			// image: "/assets/images/alberto.png",
+// 			departments: DEPARTMENTS,
+// 			isFormModalOpen: false,
+// 			name: "",
+// 			doB: "",
+// 			salaryScale: "",
+// 			department: "",
+// 			annualLeave: "",
+// 			overTime: "",
+// 			startDate: "",
+// 			image: "/assets/images/steve.jpg",
+// 			// image: "http://static.ybox.vn/2017/12/23/a64bbe0c-e7a9-11e7-b05b-56c566ee3692.jpg",
+// 			touched: {
+// 				name: false,
+// 				doB: false,
+// 				salaryScale: false,
+// 				startDate: false,
+// 				annualLeave: false,
+// 				overTime: false,
+// 			},
+// 		}
+
+// 		this.handleOnChange = this.handleOnChange.bind(this)
+// 		this.toggleFormModal = this.toggleFormModal.bind(this)
+// 		this.handleBlur = this.handleBlur.bind(this)
+// 	}
+
+// 	handleBlur = field => evt => {
+// 		this.setState({
+// 			touched: { ...this.state.touched, [field]: true },
+// 		})
+// 	}
+// 	validate(name, doB, salaryScale, annualLeave, overTime, startDate) {
+// 		const errors = {
+// 			name: "",
+// 			doB: "",
+// 			salaryScale: "",
+// 			startDate: "",
+// 			annualLeave: "",
+// 			overTime: "",
+// 		}
+// 		if (this.state.touched.name && !required(name))
+// 			errors.name = "Please fill this case"
+// 		else if (this.state.touched.name && name.length < 3)
+// 			errors.name = "Name should be >= 3 characters"
+// 		else if (this.state.touched.name && name.length > 30)
+// 			errors.name = " Name should be <= 10 characters"
+
+// 		if (this.state.touched.doB && !required(doB))
+// 			errors.doB = "Please choose date"
+
+// 		if (this.state.touched.startDate && !required(startDate))
+// 			errors.startDate = "Please choose date"
+
+// 		// if (this.state.touched.department && !required(department))
+// 		// 	errors.department = "Please choose department"
+
+// 		if (this.state.touched.salaryScale && !required(salaryScale))
+// 			errors.salaryScale = "Please fill this case"
+
+// 		if (this.state.touched.annualLeave && !required(annualLeave))
+// 			errors.annualLeave = "Please fill this case"
+
+// 		if (this.state.touched.overTime && !required(overTime))
+// 			errors.overTime = "Please fill this case"
+
+// 		return errors
+// 	}
+
+// 	handleOnChange = field => event => {
+// 		const target = event.target
+
+// 		const value = target.type === "checkbox" ? target.checked : target.value
+// 		const name = target.name
+// 		console.log("1 target: ", target.type)
+// 		console.log("2 field : ", field)
+// 		console.log("3 name : ", name)
+// 		console.log("4 valuie", value)
+// 		if (field !== "undefined") {
+// 			if (field === "department")
+// 				this.setState({
+// 					[name]: this.state.departments.filter(
+// 						d => d.name === value
+// 					)[0],
+// 					touched: { ...this.state.touched, [field]: true },
+// 				})
+// 			else {
+// 				this.setState({
+// 					[name]: value,
+// 					touched: { ...this.state.touched, [field]: true },
+// 				})
+// 			}
+// 		} else {
+// 			this.setState({
+// 				[name]: value,
+// 			})
+// 		}
+// 	}
+
+// 	toggleFormModal() {
+// 		this.setState({
+// 			isFormModalOpen: !this.state.isFormModalOpen,
+// 		})
+// 	}
+// 	handleSubmit = e => {
+// 		e.preventDefault()
+// 		console.log(this.state)
+// 		this.props.newStaff({
+// 			id: uuidv4(),
+// 			...this.state,
+// 		})
+
+// 		this.toggleFormModal()
+// 	}
+
+// 	render() {
+// 		const errors = this.validate(
+// 			this.state.name,
+// 			this.state.doB,
+// 			this.state.salaryScale,
+// 			this.state.startDate,
+// 			this.state.annualLeave,
+// 			this.state.overTime
+// 		)
+// 		return (
+// 			<React.Fragment>
+// 				<Button outline onClick={this.toggleFormModal}>
+// 					<span className='fa fa-plus fa-lg'> Add New Staff</span>
+// 				</Button>
+
+// 				<Modal
+// 					isOpen={this.state.isFormModalOpen}
+// 					toggle={this.toggleFormModal}
+// 				>
+// 					<ModalHeader toggle={this.toggleFormModal}>
+// 						{" "}
+// 						Add Staff{" "}
+// 					</ModalHeader>
+// 					<ModalBody>
+// 						<form onSubmit={this.handleSubmit}>
+// 							<div className='container'>
+// 								<h1>Create New Staff</h1>
+// 								<p>
+// 									Please fill in this form to create a new
+// 									staff.
+// 								</p>
+// 								<hr />
+// 								<label htmlFor='name'>
+// 									<b>Tên</b>
+// 								</label>
+// 								<Input
+// 									type='text'
+// 									placeholder='Nhập Tên'
+// 									name='name'
+// 									id='name'
+// 									value={this.state.name}
+// 									valid={errors.name === ""}
+// 									invalid={errors.name !== ""}
+// 									onBlur={this.handleBlur("name")}
+// 									onChange={this.handleOnChange("name")}
+// 								/>
+// 								<FormFeedback>{errors.name}</FormFeedback>
+// 								<label htmlFor='doB'>
+// 									<b>Ngày sinh</b>
+// 								</label>
+// 								<Input
+// 									type='date'
+// 									placeholder=''
+// 									name='doB'
+// 									id='doB'
+// 									value={this.state.doB}
+// 									valid={errors.doB === ""}
+// 									invalid={errors.doB !== ""}
+// 									onBlur={this.handleBlur("doB")}
+// 									onChange={this.handleOnChange}
+// 								/>
+// 								<FormFeedback>{errors.doB}</FormFeedback>
+// 								<label htmlFor='salaryScale'>
+// 									<b>Hệ số lương</b>
+// 								</label>
+// 								<Input
+// 									type='text'
+// 									placeholder='Nhập hệ số lương'
+// 									name='salaryScale'
+// 									id='salaryScale'
+// 									value={this.state.salaryScale}
+// 									valid={errors.salaryScale === ""}
+// 									invalid={errors.salaryScale !== ""}
+// 									onBlur={this.handleBlur("salaryScale")}
+// 									onChange={this.handleOnChange(
+// 										"salaryScale"
+// 									)}
+// 								/>
+// 								<FormFeedback>
+// 									{errors.salaryScale}
+// 								</FormFeedback>
+// 								<label htmlFor='startDate'>
+// 									<b>Ngày vào công ty</b>
+// 								</label>
+// 								<Input
+// 									type='date'
+// 									placeholder=''
+// 									name='startDate'
+// 									id='startDate'
+// 									value={this.state.startDate}
+// 									valid={errors.startDate === ""}
+// 									invalid={errors.startDate !== ""}
+// 									onBlur={this.handleBlur("startDate")}
+// 									onChange={this.handleOnChange("startDate")}
+// 								/>{" "}
+// 								<FormFeedback>{errors.startDate}</FormFeedback>
+// 								<label htmlFor='department'>
+// 									<b>Phòng ban</b>
+// 								</label>
+// 								<Input
+// 									type='select'
+// 									name='department'
+// 									id='department'
+// 									value={this.state.department}
+// 									onBlur={this.handleBlur("department")}
+// 									onChange={this.handleOnChange("department")}
+// 								>
+// 									{this.state.departments.map((value, id) => (
+// 										<option key={id}>{value.name}</option>
+// 									))}
+// 								</Input>
+// 								<label htmlFor='annualLeave'>
+// 									<b>Số ngày nghỉ còn lại</b>
+// 								</label>
+// 								<Input
+// 									type='text'
+// 									placeholder='Nhập số ngày nghỉ còn lại'
+// 									name='annualLeave'
+// 									id='annualLeave'
+// 									value={this.state.annualLeave}
+// 									valid={errors.annualLeave === ""}
+// 									invalid={errors.annualLeave !== ""}
+// 									onBlur={this.handleBlur("annualLeave")}
+// 									onChange={this.handleOnChange(
+// 										"annualLeave"
+// 									)}
+// 								/>{" "}
+// 								<FormFeedback>
+// 									{errors.annualLeave}
+// 								</FormFeedback>
+// 								<label htmlFor='overTime'>
+// 									<b>Số ngày đã làm thêm</b>
+// 								</label>
+// 								<Input
+// 									type='text'
+// 									placeholder='Nhập số ngày làm thêm'
+// 									name='overTime'
+// 									id='overTime'
+// 									value={this.state.overTime}
+// 									valid={errors.overTime === ""}
+// 									invalid={errors.overTime !== ""}
+// 									onBlur={this.handleBlur("overTime")}
+// 									onChange={this.handleOnChange("overTime")}
+// 								/>{" "}
+// 								<FormFeedback>{errors.overTime}</FormFeedback>
+// 								<button type='submit' className='registerbtn'>
+// 									Thêm nhân viên
+// 								</button>
+// 							</div>
+// 						</form>
+// 					</ModalBody>
+// 				</Modal>
+// 			</React.Fragment>
+// 		)
+// 	}
+// }
+
+// export default CreateStaffForm
